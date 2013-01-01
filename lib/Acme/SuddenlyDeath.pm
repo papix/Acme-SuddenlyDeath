@@ -12,26 +12,28 @@ our @EXPORT = qw/ suddenly_death suddenly_death_single /;
 use version; our $VERSION = '0.01';
 
 sub suddenly_death {
-    my $word = Encode::decode_utf8(shift);
+    my $word = shift;
+    my $decoded_word = Encode::decode_utf8($word);
 
     my $ret;
-    my $length = ( Text::VisualWidth::UTF8::width($word) + 2 ) / 2;
+    my $length = ( Text::VisualWidth::UTF8::width($decoded_word) + 2 ) / 2;
 
     $ret = '＿' . '人' x $length . '＿' . "\n";
-    $ret .= '＞ ' . $word . ' ＜' . "\n";
+    $ret .= '＞ ' . $decoded_word . ' ＜' . "\n";
     $ret .= '￣' . '^Y' x ( $length - 1 ) . '^￣';
 
     return Encode::encode_utf8($ret);
 }
 
 sub suddenly_death_single {
-    my $word = Encode::decode_utf8(shift);
+    my $word = shift;
+    my $decoded_word = Encode::decode_utf8($word);
 
     my $ret;
-    my $length = ( Text::VisualWidth::UTF8::width($word) + 2 ) / 2;
+    my $length = ( Text::VisualWidth::UTF8::width($decoded_word) + 2 ) / 2;
 
     $ret = '＿' . '人' x $length . '＿';
-    $ret .= '＞ ' . $word . ' ＜';
+    $ret .= '＞ ' . $decoded_word . ' ＜';
     $ret .= '￣' . '^Y' x ( $length - 1 ) . '^￣';
 
     return Encode::encode_utf8($ret);
@@ -48,7 +50,7 @@ Acme::SuddenlyDeath - Suddenly death (突然の死) generator
 
 =head1 SYNOPSIS
 
-  use Acme::Suddenly::Death;
+  use Acme::SuddenlyDeath;
 
   print suddenly_death('突然の死')."\n"
   # outputs => 
@@ -84,7 +86,7 @@ It returns one line ASCII art of 'suddenly death' style which was generated from
 
 =head1 AUTHOR
 
-papix E<lt>papix2011@gmail.comE<gt>
+papix E<lt>mail@papix.netE<gt>
 
 =head1 DEPENDENCIES
 

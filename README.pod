@@ -6,7 +6,7 @@ Acme::SuddenlyDeath - Suddenly death (突然の死) generator
 
 =head1 SYNOPSIS
 
-  use Acme::Suddenly::Death;
+  use Acme::SuddenlyDeath;
 
   print suddenly_death('突然の死')."\n"
   # outputs => 
@@ -42,7 +42,7 @@ It returns one line ASCII art of 'suddenly death' style which was generated from
 
 =head1 AUTHOR
 
-papix E<lt>papix2011@gmail.comE<gt>
+papix E<lt>mail@papix.netE<gt>
 
 =head1 DEPENDENCIES
 
