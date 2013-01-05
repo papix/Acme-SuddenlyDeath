@@ -9,7 +9,7 @@ use base 'Exporter';
 
 our @EXPORT = qw/ suddenly_death suddenly_death_single /;
 
-use version; our $VERSION = '0.01';
+use version; our $VERSION = '0.02';
 
 sub suddenly_death {
     my $word = shift;
