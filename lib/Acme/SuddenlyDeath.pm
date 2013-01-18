@@ -9,7 +9,7 @@ use base 'Exporter';
 
 our @EXPORT = qw/ suddenly_death suddenly_death_single /;
 
-use version; our $VERSION = '0.02';
+use version; our $VERSION = '0.03';
 
 sub suddenly_death {
     my $word = shift;
@@ -53,7 +53,7 @@ Acme::SuddenlyDeath - Suddenly death (突然の死) generator
   use Acme::SuddenlyDeath;
 
   print suddenly_death('突然の死')."\n"
-  # outputs => 
+  # outputs =>
   #   ＿人人人人人＿
   #   ＞ 突然の死 ＜
   #   ￣^Y^Y^Y^Y^￣
