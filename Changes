@@ -1,5 +1,8 @@
 Revision history for Perl extension Acme::SuddenlyDeath
 
+0.03    Fri Jan 18 12:12:43 2013
+        - Fixed a problem of failing some tests.
+
 0.02    Sun Jan 06 00:52:03 2013
         - Request "Encode" module for testing.
 

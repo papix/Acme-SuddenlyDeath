@@ -9,7 +9,7 @@ Acme::SuddenlyDeath - Suddenly death (突然の死) generator
   use Acme::SuddenlyDeath;
 
   print suddenly_death('突然の死')."\n"
-  # outputs => 
+  # outputs =>
   #   ＿人人人人人＿
   #   ＞ 突然の死 ＜
   #   ￣^Y^Y^Y^Y^￣
@@ -26,7 +26,7 @@ L<http://dic.nicovideo.jp/a/%E7%AA%81%E7%84%B6%E3%81%AE%E6%AD%BB>
 
 =head1 METHODS
 
-=over 4
+=over
 
 =item suddenly_death
 
