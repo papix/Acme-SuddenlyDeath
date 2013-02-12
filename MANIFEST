@@ -1,0 +1,15 @@
+Build
+Build.PL
+Changes
+lib/Acme/SuddenlyDeath.pm
+LICENSE
+MANIFEST			This list of files
+META.json
+META.yml
+README
+t/00_compile.t
+t/01_translate.t
+t/02_translate_single.t
+xt/01_podspell.t
+xt/02_perlcritic.t
+xt/03_pod.t

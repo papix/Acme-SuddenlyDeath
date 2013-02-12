@@ -9,18 +9,37 @@ use base 'Exporter';
 
 our @EXPORT = qw/ suddenly_death suddenly_death_single /;
 
-use version; our $VERSION = '0.03';
+use version; our $VERSION = '0.04';
+
+sub _generator {
+    my $decoded_str = shift;
+    my @decoded_lines = split /\n/, $decoded_str;
+
+    my $max_length = 0;
+    $max_length = $_ > $max_length ? $_ : $max_length
+        for map {Text::VisualWidth::UTF8::width($_)} @decoded_lines;
+
+    my $ascii = [];
+    my $frame_length = ($max_length + 2) / 2;
+    push @{$ascii}, '＿' . '人' x $frame_length . '＿';
+    for my $line (@decoded_lines) {
+        my $str_length = $max_length - Text::VisualWidth::UTF8::width($line);
+        my ($left, $right) = map{' ' x $_} ($str_length / 2, $str_length / 2);
+
+        $left = $str_length % 2 != 0 ? $left . ' ' : $left;
+        push @{$ascii}, '＞ ' . $left . $line . $right . ' ＜';
+    }
+    push @{$ascii}, '￣' . '^Y' x ($frame_length - 1) . '^￣';
+
+    return $ascii;
+}
 
 sub suddenly_death {
     my $word = shift;
     my $decoded_word = Encode::decode_utf8($word);
 
-    my $ret;
-    my $length = ( Text::VisualWidth::UTF8::width($decoded_word) + 2 ) / 2;
-
-    $ret = '＿' . '人' x $length . '＿' . "\n";
-    $ret .= '＞ ' . $decoded_word . ' ＜' . "\n";
-    $ret .= '￣' . '^Y' x ( $length - 1 ) . '^￣';
+    my $ascii = _generator($decoded_word);
+    my $ret = join "\n", @{$ascii};
 
     return Encode::encode_utf8($ret);
 }
@@ -29,12 +48,8 @@ sub suddenly_death_single {
     my $word = shift;
     my $decoded_word = Encode::decode_utf8($word);
 
-    my $ret;
-    my $length = ( Text::VisualWidth::UTF8::width($decoded_word) + 2 ) / 2;
-
-    $ret = '＿' . '人' x $length . '＿';
-    $ret .= '＞ ' . $decoded_word . ' ＜';
-    $ret .= '￣' . '^Y' x ( $length - 1 ) . '^￣';
+    my $ascii = _generator($decoded_word);
+    my $ret = join '', @{$ascii};
 
     return Encode::encode_utf8($ret);
 }
@@ -57,6 +72,11 @@ Acme::SuddenlyDeath - Suddenly death (突然の死) generator
   #   ＿人人人人人＿
   #   ＞ 突然の死 ＜
   #   ￣^Y^Y^Y^Y^￣
+  print suddenly_death("突然の\n死")."\n"
+  #   ＿人人人人＿
+  #   ＞ 突然の ＜
+  #   ＞   死   ＜
+  #   ￣^Y^Y^Y^￣
   print suddenly_death_single('突然の死')."\n"
   # outputs =>
   #   ＿人人人人人＿＞ 突然の死 ＜￣^Y^Y^Y^Y^￣

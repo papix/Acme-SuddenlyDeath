@@ -1,10 +1,15 @@
 Revision history for Perl extension Acme::SuddenlyDeath
 
-0.03    Fri Jan 18 12:12:43 2013
+0.04    Tue Feb 12 15:14:16 JST 2013
+        - Changed builder module to Module::Build.
+        - Corresponding to the multi-line input.
+
+0.03    Fri Jan 18 12:12:43 JST 2013
         - Fixed a problem of failing some tests.
 
-0.02    Sun Jan 06 00:52:03 2013
+0.02    Sun Jan 06 00:52:03 JST 2013
         - Request "Encode" module for testing.
 
-0.01    Fri Dec 21 07:04:44 2012
+0.01    Fri Dec 21 07:04:44 JST 2012
         - original version
+
