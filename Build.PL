@@ -12,12 +12,14 @@ my $builder = Module::Build->new(
 
     build_requires => {
         'Test::More' => '0.98',
+        'Encode'     => '2.39',
     },
     configure_requires => {
         'Module::Build' => '0.40',
     },
     requires => {
-        'Encode'     => '2.39',
+        'base' => 0,
+        'Text::VisualWidth' => '0.02',
     },
 
     no_index => { 'directory' => ['inc'] },
