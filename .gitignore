@@ -12,3 +12,10 @@ blib/
 pm_to_blib
 Acme-SuddenlyDeath-*
 Acme-SuddenlyDeath-*.tar.gz
+/Acme-SuddenlyDeath-*
+/.build
+/_build_params
+/Build
+!Build/
+!META.json
+!LICENSE

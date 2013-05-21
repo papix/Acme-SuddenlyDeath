@@ -1,5 +1,8 @@
 Revision history for Perl extension Acme::SuddenlyDeath
 
+{{$NEXT}}
+        - Changed builder module to Minilla.
+
 0.04    Wed Feb 27 15:45:31 JST 2013
         - Changed builder module to Module::Build.
         - Corresponding to the multi-line input.

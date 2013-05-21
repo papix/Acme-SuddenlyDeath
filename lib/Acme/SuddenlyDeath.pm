@@ -5,7 +5,7 @@ use utf8;
 
 use Encode;
 use Text::VisualWidth::UTF8;
-use base 'Exporter';
+use parent 'Exporter';
 
 our @EXPORT = qw/ suddenly_death suddenly_death_single /;
 
