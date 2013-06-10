@@ -1,43 +1,48 @@
 # NAME
 
-Acme::SuddenlyDeath - Suddenly death (突然の死) generator
+Acme::SuddenlyDeath - ASCII Art of sudden death (突然の死) generator
 
 # SYNOPSIS
 
     use Acme::SuddenlyDeath;
 
-    print suddenly_death('突然の死')."\n"
+    print sudden_death('突然の死')."\n"
     # outputs =>
     #   ＿人人人人人＿
     #   ＞ 突然の死 ＜
     #   ￣^Y^Y^Y^Y^￣
-    print suddenly_death("突然の\n死")."\n"
+    print sudden_death("突然の\n死")."\n"
     #   ＿人人人人＿
     #   ＞ 突然の ＜
     #   ＞   死   ＜
     #   ￣^Y^Y^Y^￣
-    print suddenly_death_single('突然の死')."\n"
+    print sudden_death_single('突然の死')."\n"
     # outputs =>
     #   ＿人人人人人＿＞ 突然の死 ＜￣^Y^Y^Y^Y^￣
 
 # DESCRIPTION
 
-Acme::SuddenlyDeath is the suddenly death generator.
-This module can generate ASCII art of 'suddenly death' style from any strings.
-If you would like to know about suddenly death, please refer to the following web site (Japanese Web Site).
+Acme::SuddenlyDeath generate the ASCII Art of sudden death from any strings.
+If you would like to know about sudden death, please refer to the following web site (Japanese Web Site).
 [http://dic.nicovideo.jp/a/%E7%AA%81%E7%84%B6%E3%81%AE%E6%AD%BB](http://dic.nicovideo.jp/a/%E7%AA%81%E7%84%B6%E3%81%AE%E6%AD%BB)
 
 # METHODS
 
-- suddenly\_death
+- sudden\_death
 
     This method needs a string as parameter.
-    It returns multiple line ASCII art of 'suddenly death' style which was generated from string.
+    It returns multiple line ASCII art of 'sudden death' which was generated from string.
 
+- sudden\_death\_single
+
+    This method needs a string as parameter.
+    It returns one line ASCII art of 'sudden death' which was generated from string.
+
+- suddenly\_death
 - suddenly\_death\_single
 
-    This method needs a string as parameter.
-    It returns one line ASCII art of 'suddenly death' style which was generated from string.
+    These methods are similar to the sudden\_death and sudden\_death\_single.
+    However, this method decodes the parameter using Encode::decode\_utf8 and encodes the output using Encode::encode\_utf8.
 
 # AUTHOR
 

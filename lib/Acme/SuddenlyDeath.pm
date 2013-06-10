@@ -3,13 +3,13 @@ use strict;
 use warnings;
 use utf8;
 
-use Encode;
-use Text::VisualWidth::UTF8;
 use parent 'Exporter';
+use Encode qw/decode_utf8 encode_utf8/;
+use Text::VisualWidth::UTF8;
 
-our @EXPORT = qw/ suddenly_death suddenly_death_single /;
+our @EXPORT = qw/ suddenly_death suddenly_death_single sudden_death sudden_death_single /;
 
-use version; our $VERSION = '0.04';
+use version; our $VERSION = '0.05';
 
 sub _generator {
     my $decoded_str = shift;
@@ -34,24 +34,36 @@ sub _generator {
     return $ascii;
 }
 
+sub sudden_death {
+    my $string = shift;
+
+    my $ascii = _generator($string);
+    return join "\n", @{$ascii};
+}
+
+sub sudden_death_single {
+    my $string = shift;
+
+    my $ascii = _generator($string);
+    return join '', @{$ascii};
+}
+
 sub suddenly_death {
-    my $word = shift;
-    my $decoded_word = Encode::decode_utf8($word);
+    my $string = shift;
 
-    my $ascii = _generator($decoded_word);
-    my $ret = join "\n", @{$ascii};
+    my $decoded_string = decode_utf8($string);
+    my $ascii = sudden_death($decoded_string);
 
-    return Encode::encode_utf8($ret);
+    return encode_utf8($ascii);
 }
 
 sub suddenly_death_single {
-    my $word = shift;
-    my $decoded_word = Encode::decode_utf8($word);
+    my $string = shift;
 
-    my $ascii = _generator($decoded_word);
-    my $ret = join '', @{$ascii};
+    my $decoded_string = decode_utf8($string);
+    my $ascii = sudden_death_single($decoded_string);
 
-    return Encode::encode_utf8($ret);
+    return encode_utf8($ascii);
 }
 
 1;
@@ -61,46 +73,52 @@ __END__
 
 =head1 NAME
 
-Acme::SuddenlyDeath - Suddenly death (突然の死) generator
+Acme::SuddenlyDeath - ASCII Art of sudden death (突然の死) generator
 
 =head1 SYNOPSIS
 
   use Acme::SuddenlyDeath;
 
-  print suddenly_death('突然の死')."\n"
+  print sudden_death('突然の死')."\n"
   # outputs =>
   #   ＿人人人人人＿
   #   ＞ 突然の死 ＜
   #   ￣^Y^Y^Y^Y^￣
-  print suddenly_death("突然の\n死")."\n"
+  print sudden_death("突然の\n死")."\n"
   #   ＿人人人人＿
   #   ＞ 突然の ＜
   #   ＞   死   ＜
   #   ￣^Y^Y^Y^￣
-  print suddenly_death_single('突然の死')."\n"
+  print sudden_death_single('突然の死')."\n"
   # outputs =>
   #   ＿人人人人人＿＞ 突然の死 ＜￣^Y^Y^Y^Y^￣
 
 =head1 DESCRIPTION
 
-Acme::SuddenlyDeath is the suddenly death generator.
-This module can generate ASCII art of 'suddenly death' style from any strings.
-If you would like to know about suddenly death, please refer to the following web site (Japanese Web Site).
+Acme::SuddenlyDeath generate the ASCII Art of sudden death from any strings.
+If you would like to know about sudden death, please refer to the following web site (Japanese Web Site).
 L<http://dic.nicovideo.jp/a/%E7%AA%81%E7%84%B6%E3%81%AE%E6%AD%BB>
 
 =head1 METHODS
 
 =over
 
-=item suddenly_death
+=item sudden_death
 
 This method needs a string as parameter.
-It returns multiple line ASCII art of 'suddenly death' style which was generated from string.
+It returns multiple line ASCII art of 'sudden death' which was generated from string.
+
+=item sudden_death_single
+
+This method needs a string as parameter.
+It returns one line ASCII art of 'sudden death' which was generated from string.
+
+=item suddenly_death
 
 =item suddenly_death_single
 
-This method needs a string as parameter.
-It returns one line ASCII art of 'suddenly death' style which was generated from string.
+These methods are similar to the sudden_death and sudden_death_single.
+However, this method decodes the parameter using Encode::decode_utf8 and encodes the output using Encode::encode_utf8.
 
 =back
 
