@@ -4,7 +4,7 @@ use warnings;
 
 use Acme::SuddenlyDeath;
 
-print suddenly_death(@ARGV);
+print suddenly_death($ARGV[0] || '突然の死');
 print "\n";
 
 exit(0);
@@ -22,10 +22,10 @@ sudden-death - CLI interface of Acme::SuddenlyDeath
     $ sudden-death [string]
 
     # e.g.
-    #    $ sudden-death 突然の死
-    #    ＿人人人人人＿
-    #    ＞ 突然の死 ＜
-    #    ￣^Y^Y^Y^Y^￣
+    #    $ sudden-death 'Sudden Death'
+    #    ＿人人人人人人人＿
+    #    ＞ Sudden death ＜
+    #    ￣^Y^Y^Y^Y^Y^Y^￣
 
 =head1 DESCRIPTION
 
