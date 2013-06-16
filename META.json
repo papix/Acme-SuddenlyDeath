@@ -4,7 +4,7 @@
       "papix <mail@papix.net>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v0.5.0, CPAN::Meta::Converter version 2.131490",
+   "generated_by" : "Minilla/v0.5.3, CPAN::Meta::Converter version 2.131490",
    "license" : [
       "perl_5"
    ],
