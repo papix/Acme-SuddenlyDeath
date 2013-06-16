@@ -2,6 +2,9 @@ Revision history for Perl extension Acme::SuddenlyDeath
 
 {{$NEXT}}
 
+0.07 2013-06-16T14:01:17Z
+        - Fix bug in sudden-death command.
+
 0.06 2013-06-16T06:46:09Z
         - Add sudden-death command.
 

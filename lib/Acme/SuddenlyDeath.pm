@@ -9,7 +9,7 @@ use Text::VisualWidth::UTF8;
 
 our @EXPORT = qw/ suddenly_death suddenly_death_single sudden_death sudden_death_single /;
 
-use version; our $VERSION = '0.06';
+use version; our $VERSION = '0.07';
 
 sub _generator {
     my $decoded_str = shift;
