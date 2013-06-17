@@ -51,7 +51,7 @@
             "Exporter" : "0",
             "Text::VisualWidth" : "0.02",
             "parent" : "0",
-            "perl" : "5.008009"
+            "perl" : "5.008001"
          }
       }
    },
