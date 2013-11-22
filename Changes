@@ -1,6 +1,8 @@
 Revision history for Perl extension Acme::SuddenlyDeath
 
 {{$NEXT}}
+
+0.08 2013-11-22T07:13:14Z
         - Delete suddely_death/suddely_death_single function. 
 
 0.07 2013-06-16T14:01:17Z
