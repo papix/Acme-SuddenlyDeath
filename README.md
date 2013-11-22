@@ -39,12 +39,6 @@ If you would like to know about sudden death, please refer to the following web 
     This method needs a string as parameter.
     It returns one line ASCII art of 'sudden death' which was generated from string.
 
-- suddenly\_death
-- suddenly\_death\_single
-
-    These methods are similar to the sudden\_death and sudden\_death\_single.
-    However, this method decodes the parameter using Encode::decode\_utf8 and encodes the output using Encode::encode\_utf8.
-
 # AUTHOR
 
 papix <mail@papix.net>

@@ -4,10 +4,9 @@ use warnings;
 use utf8;
 
 use parent 'Exporter';
-use Encode qw/decode_utf8 encode_utf8/;
 use Text::VisualWidth::UTF8;
 
-our @EXPORT = qw/ suddenly_death suddenly_death_single sudden_death sudden_death_single /;
+our @EXPORT = qw/ sudden_death sudden_death_single /;
 
 use version; our $VERSION = '0.07';
 
@@ -46,24 +45,6 @@ sub sudden_death_single {
 
     my $ascii = _generator($string);
     return join '', @{$ascii};
-}
-
-sub suddenly_death {
-    my $string = shift;
-
-    my $decoded_string = decode_utf8($string);
-    my $ascii = sudden_death($decoded_string);
-
-    return encode_utf8($ascii);
-}
-
-sub suddenly_death_single {
-    my $string = shift;
-
-    my $decoded_string = decode_utf8($string);
-    my $ascii = sudden_death_single($decoded_string);
-
-    return encode_utf8($ascii);
 }
 
 1;
@@ -113,13 +94,6 @@ It returns multiple line ASCII art of 'sudden death' which was generated from st
 
 This method needs a string as parameter.
 It returns one line ASCII art of 'sudden death' which was generated from string.
-
-=item suddenly_death
-
-=item suddenly_death_single
-
-These methods are similar to the sudden_death and sudden_death_single.
-However, this method decodes the parameter using Encode::decode_utf8 and encodes the output using Encode::encode_utf8.
 
 =back
 
