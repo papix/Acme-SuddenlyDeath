@@ -25,6 +25,7 @@ Acme::SuddenlyDeath - ASCII Art of sudden death (突然の死) generator
 
 Acme::SuddenlyDeath generate the ASCII Art of sudden death from any strings.
 If you would like to know about sudden death, please refer to the following web site (Japanese Web Site).
+
 [http://dic.nicovideo.jp/a/%E7%AA%81%E7%84%B6%E3%81%AE%E6%AD%BB](http://dic.nicovideo.jp/a/%E7%AA%81%E7%84%B6%E3%81%AE%E6%AD%BB)
 
 # METHODS

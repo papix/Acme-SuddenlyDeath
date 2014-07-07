@@ -8,7 +8,7 @@ use Text::VisualWidth::UTF8;
 
 our @EXPORT = qw/ sudden_death sudden_death_single /;
 
-use version; our $VERSION = '0.08';
+use version; our $VERSION = '0.09';
 
 sub _generator {
     my $decoded_str = shift;
@@ -79,6 +79,7 @@ Acme::SuddenlyDeath - ASCII Art of sudden death (突然の死) generator
 
 Acme::SuddenlyDeath generate the ASCII Art of sudden death from any strings.
 If you would like to know about sudden death, please refer to the following web site (Japanese Web Site).
+
 L<http://dic.nicovideo.jp/a/%E7%AA%81%E7%84%B6%E3%81%AE%E6%AD%BB>
 
 =head1 METHODS

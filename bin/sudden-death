@@ -1,10 +1,14 @@
 #!perl
 use strict;
 use warnings;
+use utf8;
 
 use Acme::SuddenlyDeath;
+use Encode;
 
-print suddenly_death($ARGV[0] || '突然の死');
+my $str = Encode::decode_utf8($ARGV[0] || '突然の死');
+
+print Encode::encode_utf8(sudden_death($str));
 print "\n";
 
 exit(0);
